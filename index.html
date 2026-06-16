@@ -101,6 +101,12 @@
             padding-left: 15px;
         }
 
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
         .hero-img-container {
             flex: 0.8;
             display: flex;
@@ -139,6 +145,24 @@
 
         .cta-btn:hover {
             background-color: var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        .resume-btn {
+            background-color: transparent;
+            color: var(--accent-glow);
+            border: 2px solid var(--accent-teal);
+            padding: 10px 28px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .resume-btn:hover {
+            background-color: rgba(13, 148, 136, 0.1);
+            border-color: var(--accent-glow);
             transform: translateY(-2px);
         }
 
@@ -199,7 +223,6 @@
             margin-bottom: 15px;
         }
 
-        /* Project Screenshot Layout */
         .project-preview-img {
             width: 100%;
             height: 160px;
@@ -245,7 +268,7 @@
             padding: 40px;
             border: 1px solid rgba(45, 212, 191, 0.1);
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px;
             text-align: center;
         }
@@ -306,12 +329,15 @@
             <h1><span>Sakshi Pal</span></h1>
             <h2>Data Analyst & Business Intelligence Specialist</h2>
             
-            <!-- High-Impact Professional Profile Summary -->
             <p class="profile-summary">
-                Results-driven Data Analyst and B.Tech Computer Science (Data Science) graduate with hands-on experience managing and interpreting extensive datasets up to 900K+ rows. Adept at transforming complex, raw operational metrics into clean, business-critical insights through end-to-end interactive reporting systems. Proven proficiency across Python, SQL, Power BI, and Tableau, backed by corporate internship execution and hackathon wins focused on optimizing real-world organizational efficiency.
+                Results-driven Data Analyst, Business Analyst, and B.Tech Graduate in Computer Science & Engineering (Data Science) with proven expertise in interpreting large-scale operational records up to 900K+ entries. Adept at transforming complex, unstructured transactional matrices into clean, interactive corporate insights and responsive dashboard configurations. Competent across Python data science stacks, structural database querying, and industry-standard business intelligence frameworks to optimize real-world pipeline execution.
             </p>
             
-            <a href="#projects" class="cta-btn">View Live Production Apps</a>
+            <!-- Dual CTA Action Blocks (Added Resume Target) -->
+            <div class="hero-buttons">
+                <a href="#projects" class="cta-btn">View Live Production Apps</a>
+                <a href="resume.pdf" target="_blank" class="resume-btn">📄 View Resume</a>
+            </div>
         </div>
         <div class="hero-img-container">
             <img src="pic.jpeg" alt="Sakshi Pal" class="profile-img">
@@ -360,7 +386,7 @@
         </div>
     </section>
 
-    <!-- Projects Section with Image Slots for ALL Projects -->
+    <!-- Projects Section -->
     <section id="projects">
         <h2 class="section-title">Featured Production Applications</h2>
         <div class="grid-container">
@@ -372,16 +398,13 @@
                         <span style="font-size: 0.7rem; background: var(--accent-teal); color: white; padding: 3px 8px; border-radius: 10px;">LIVE APP</span>
                     </h3>
                     <div class="card-date">Python, Streamlit, Plotly Cloud Engine</div>
-                    
-                    <!-- Image Option for Project 1 -->
-                    <img src="" alt="Dashboard Chart Preview" class="project-preview-img" onerror="this.style.display='none'">
-                    
+                    <img src="dashboard_preview.png" alt="Dashboard Chart Preview" class="project-preview-img" onerror="this.style.display='none'">
                     <p style="color: var(--text-muted); font-size: 0.95rem;">
                         An interactive analytics tool that scans and parses technology tool mentions across listings. Built live interactive filters for instantaneous corporate trend extraction.
                     </p>
                 </div>
                 <div class="project-links">
-                    <a href="https://job-market-analytics-4v6jqwpbvsrp8kuz8rwmgb.streamlit.app/" target="_blank">🔗 Open Live Web App</a>
+                    <a href="https://job-market-analytics-byvjwkcsn33ut8dzdxeyy.streamlit.app" target="_blank">🔗 Open Live Web App</a>
                     <a href="https://github.com/SAKSHIPAL9953/job-market-analytics" target="_blank" style="color: var(--text-muted);">📦 GitHub Repo</a>
                 </div>
             </div>
@@ -391,16 +414,13 @@
                 <div>
                     <h3>Road Accident Geospatial Analytics</h3>
                     <div class="card-date">Tableau Desktop, Visual Storytelling</div>
-                    
-                    <!-- Image Option for Project 2 -->
-                    <img src="dashboard_preview.png" alt="Tableau Map Preview" class="project-preview-img" onerror="this.style.display='none'">
-                    
+                    <img src="road_accident_preview.png" alt="Tableau Map Preview" class="project-preview-img" onerror="this.style.display='none'">
                     <p style="color: var(--text-muted); font-size: 0.95rem;">
                         Analyzed 10,000+ records to develop dynamic time-series and categorical visualizations highlighting high-risk peak periods and risk assessment patterns.
                     </p>
                 </div>
                 <div class="project-links">
-                    <a href="#" target="_blank">📦 Source Repository</a>
+                    <a href="https://github.com/SAKSHIPAL9953/road-accident-analysis-tableau" target="_blank">📦 Source Repository</a>
                 </div>
             </div>
 
@@ -408,17 +428,14 @@
             <div class="card">
                 <div>
                     <h3>Quick Commerce Operations Framework</h3>
-                    <div class="card-date">Power BI, DAX Modehttps://job-market-analytics-byvjwkcsn33ut8dzdxeyy.streamlit.appling, 900K+ Dataset</div>
-                    
-                    <!-- Image Option for Project 3 -->
-                    <img src="Screenshot 2026-04-29 150009.png" alt="Power BI Dashboard Preview" class="project-preview-img" onerror="this.style.display='none'">
-                    
+                    <div class="card-date">Power BI, DAX Modeling, 900K+ Dataset</div>
+                    <img src="quick_commerce_preview.png" alt="Power BI Dashboard Preview" class="project-preview-img" onerror="this.style.display='none'">
                     <p style="color: var(--text-muted); font-size: 0.95rem;">
                         Modeled delivery latency vs distance matrices over 900K+ transactional order instances to discover logistical bottlenecks and highlight revenue-driving categories.
                     </p>
                 </div>
                 <div class="project-links">
-                    <a href="#" target="_blank">📦 Source Repository</a>
+                    <a href="https://github.com/SAKSHIPAL9953/quick-commerce-powerbi-dashboard" target="_blank">📦 Source Repository</a>
                 </div>
             </div>
         </div>
@@ -428,6 +445,13 @@
     <section id="contact" style="background: rgba(255,255,255,0.01);">
         <h2 class="section-title">Get In Touch</h2>
         <div class="contact-container">
+            <!-- New Dedicated Resume Channel Block -->
+            <a href="resume.pdf" target="_blank" class="contact-method" style="border: 1px solid rgba(45, 212, 191, 0.3);">
+                <span class="contact-icon">📄</span>
+                <span class="contact-label">Curriculum Vitae</span>
+                <span class="contact-value">Download Resume PDF</span>
+            </a>
+
             <!-- WhatsApp Connection -->
             <a href="https://wa.me/917982642410" target="_blank" class="contact-method">
                 <span class="contact-icon">💬</span>
@@ -443,7 +467,7 @@
             </a>
 
             <!-- LinkedIn Profile Connection -->
-            <a href="https://linkedin.com/in/sakshi-pal" target="_blank" class="contact-method">
+            <a href="https://www.linkedin.com/in/sakshi-pal-42482a251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="contact-method">
                 <span class="contact-icon">💼</span>
                 <span class="contact-label">LinkedIn</span>
                 <span class="contact-value">Connect on LinkedIn</span>
