@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakshi Pal | Data Analyst Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0F172A;
+            --card-bg: #1E293B;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --accent-teal: #0D9488;
+            --accent-glow: #2DD4BF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-glow);
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-glow);
+        }
+
+        /* Split Hero Section Layout */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10%;
+            background: radial-gradient(circle at 80% 20%, rgba(13, 148, 136, 0.15) 0%, transparent 50%);
+            gap: 50px;
+        }
+
+        .hero-content {
+            flex: 1.4;
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 5px;
+        }
+
+        .hero h1 span {
+            color: var(--accent-glow);
+        }
+
+        .hero h2 {
+            font-size: 1.6rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .profile-summary {
+            color: #CBD5E1;
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+            text-align: justify;
+            border-left: 3px solid var(--accent-teal);
+            padding-left: 15px;
+        }
+
+        .hero-img-container {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 240px;
+            height: 240px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 50%;
+            border: 4px solid var(--accent-teal);
+            box-shadow: 0 0 25px rgba(45, 212, 191, 0.3);
+            transition: 0.4s;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            border-color: var(--accent-glow);
+            box-shadow: 0 0 35px rgba(45, 212, 191, 0.5);
+        }
+
+        .cta-btn {
+            background-color: var(--accent-teal);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 4px 14px rgba(13, 148, 136, 0.4);
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        /* Sections General Layout */
+        section {
+            padding: 100px 10% 60px 10%;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent-glow);
+            bottom: -5px;
+            left: 0;
+        }
+
+        /* Grid Framework */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-glow);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .card h3 {
+            color: var(--accent-glow);
+            margin-bottom: 10px;
+        }
+
+        .card-date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        /* Project Screenshot Layout */
+        .project-preview-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Skills Chips */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-badge {
+            background-color: rgba(13, 148, 136, 0.1);
+            color: var(--accent-glow);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(13, 148, 136, 0.3);
+            font-weight: 500;
+        }
+
+        .project-links a {
+            color: var(--accent-glow);
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 15px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Footer Layout */
+        .contact-container {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 40px;
+            border: 1px solid rgba(45, 212, 191, 0.1);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .contact-method {
+            padding: 20px;
+            background: rgba(15, 23, 42, 0.4);
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.02);
+            transition: 0.3s;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .contact-method:hover {
+            border-color: var(--accent-glow);
+            transform: translateY(-3px);
+            background: rgba(13, 148, 136, 0.1);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .contact-label {
+            font-weight: bold;
+            color: var(--accent-glow);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-value {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav Bar -->
+    <nav>
+        <div class="logo">Sakshi Pal.</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Header Section -->
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <h2>Hello, I'm</h2>
+            <h1><span>Sakshi Pal</span></h1>
+            <h2>Data Analyst & Business Intelligence Specialist</h2>
+            
+            <!-- High-Impact Professional Profile Summary -->
+            <p class="profile-summary">
+                Results-driven Data Analyst and B.Tech Computer Science (Data Science) graduate with hands-on experience managing and interpreting extensive datasets up to 900K+ rows. Adept at transforming complex, raw operational metrics into clean, business-critical insights through end-to-end interactive reporting systems. Proven proficiency across Python, SQL, Power BI, and Tableau, backed by corporate internship execution and hackathon wins focused on optimizing real-world organizational efficiency.
+            </p>
+            
+            <a href="#projects" class="cta-btn">View Live Production Apps</a>
+        </div>
+        <div class="hero-img-container">
+            <img src="pic.jpeg" alt="Sakshi Pal" class="profile-img">
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-container">
+            <div class="skill-badge">Python (Pandas, NumPy, Matplotlib)</div>
+            <div class="skill-badge">SQL (MySQL Database Management)</div>
+            <div class="skill-badge">Power BI (DAX, Power Query, Data Modeling)</div>
+            <div class="skill-badge">Tableau Dashboard Architecture</div>
+            <div class="skill-badge">Advanced Excel (Pivot Tables, Power Pivot)</div>
+            <div class="skill-badge">Exploratory Data Analysis (EDA)</div>
+            <div class="skill-badge">Data Cleaning & Preprocessing</div>
+            <div class="skill-badge">Streamlit Application Hosting</div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" style="background: rgba(255,255,255,0.01);">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="grid-container">
+            <div class="card">
+                <div>
+                    <h3>Data Analytics Intern</h3>
+                    <p style="font-weight: 500;">DeepThought CultureTech Ventures Private Limited</p>
+                    <div class="card-date">Dec 2025 - Feb 2026</div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        Designed enterprise-grade interactive dashboards in Power BI for real-time KPI and operational metric monitoring. Performed exploratory data analysis to identify revenue and customer behavior patterns while automating manual reporting flows.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <h3>Data Analyst Intern</h3>
+                    <p style="font-weight: 500;">CRC Department, ABESIT</p>
+                    <div class="card-date">June 2025 - July 2025</div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        Cleaned, processed, and analyzed 10,000+ road accident data vectors using SQL and Advanced Excel. Engineered high-performance Tableau dashboards utilizing custom calculated fields and parameters to track high-risk severity hotspots.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section with Image Slots for ALL Projects -->
+    <section id="projects">
+        <h2 class="section-title">Featured Production Applications</h2>
+        <div class="grid-container">
+            <!-- 1. Streamlit App Project Card -->
+            <div class="card" style="border: 1px solid rgba(45, 212, 191, 0.3);">
+                <div>
+                    <h3 style="display: flex; justify-content: space-between; align-items: center;">
+                        <span>Job Market Analytics</span>
+                        <span style="font-size: 0.7rem; background: var(--accent-teal); color: white; padding: 3px 8px; border-radius: 10px;">LIVE APP</span>
+                    </h3>
+                    <div class="card-date">Python, Streamlit, Plotly Cloud Engine</div>
+                    
+                    <!-- Image Option for Project 1 -->
+                    <img src="" alt="Dashboard Chart Preview" class="project-preview-img" onerror="this.style.display='none'">
+                    
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        An interactive analytics tool that scans and parses technology tool mentions across listings. Built live interactive filters for instantaneous corporate trend extraction.
+                    </p>
+                </div>
+                <div class="project-links">
+                    <a href="https://job-market-analytics-4v6jqwpbvsrp8kuz8rwmgb.streamlit.app/" target="_blank">🔗 Open Live Web App</a>
+                    <a href="https://github.com/SAKSHIPAL9953/job-market-analytics" target="_blank" style="color: var(--text-muted);">📦 GitHub Repo</a>
+                </div>
+            </div>
+
+            <!-- 2. Road Accident Project Card -->
+            <div class="card">
+                <div>
+                    <h3>Road Accident Geospatial Analytics</h3>
+                    <div class="card-date">Tableau Desktop, Visual Storytelling</div>
+                    
+                    <!-- Image Option for Project 2 -->
+                    <img src="dashboard_preview.png" alt="Tableau Map Preview" class="project-preview-img" onerror="this.style.display='none'">
+                    
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        Analyzed 10,000+ records to develop dynamic time-series and categorical visualizations highlighting high-risk peak periods and risk assessment patterns.
+                    </p>
+                </div>
+                <div class="project-links">
+                    <a href="#" target="_blank">📦 Source Repository</a>
+                </div>
+            </div>
+
+            <!-- 3. Quick Commerce Project Card -->
+            <div class="card">
+                <div>
+                    <h3>Quick Commerce Operations Framework</h3>
+                    <div class="card-date">Power BI, DAX Modehttps://job-market-analytics-byvjwkcsn33ut8dzdxeyy.streamlit.appling, 900K+ Dataset</div>
+                    
+                    <!-- Image Option for Project 3 -->
+                    <img src="Screenshot 2026-04-29 150009.png" alt="Power BI Dashboard Preview" class="project-preview-img" onerror="this.style.display='none'">
+                    
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        Modeled delivery latency vs distance matrices over 900K+ transactional order instances to discover logistical bottlenecks and highlight revenue-driving categories.
+                    </p>
+                </div>
+                <div class="project-links">
+                    <a href="#" target="_blank">📦 Source Repository</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Panel Section -->
+    <section id="contact" style="background: rgba(255,255,255,0.01);">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <!-- WhatsApp Connection -->
+            <a href="https://wa.me/917982642410" target="_blank" class="contact-method">
+                <span class="contact-icon">💬</span>
+                <span class="contact-label">WhatsApp</span>
+                <span class="contact-value">+91 7982642410</span>
+            </a>
+
+            <!-- Official Email -->
+            <a href="mailto:sakshipal9953@gmail.com" class="contact-method">
+                <span class="contact-icon">📧</span>
+                <span class="contact-label">Email Address</span>
+                <span class="contact-value">sakshipal9953@gmail.com</span>
+            </a>
+
+            <!-- LinkedIn Profile Connection -->
+            <a href="https://linkedin.com/in/sakshi-pal" target="_blank" class="contact-method">
+                <span class="contact-icon">💼</span>
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-value">Connect on LinkedIn</span>
+            </a>
+
+            <!-- GitHub Codebase Hub -->
+            <a href="https://github.com/SAKSHIPAL9953" target="_blank" class="contact-method">
+                <span class="contact-icon">📦</span>
+                <span class="contact-label">GitHub Portfolio</span>
+                <span class="contact-value">SAKSHIPAL9953</span>
+            </a>
+        </div>
+    </section>
+
+</body>
+</html>
